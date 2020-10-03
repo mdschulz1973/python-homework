@@ -1,0 +1,80 @@
+**cam example**
+with open(filepath, "r") as csvfile:
+    csvreader = csv.reader(csvfile)
+
+    pnl = 0
+    header = next(csvreader)
+    
+    for row in csvreader:
+        pnl += int(row[1])
+
+    print(pnl) 
+
+-----------------------------------------------------
+
+with open(filepath, "r") as budget_data:
+    csv_data = csv.reader(budget_data)
+    
+    net_pnl = 0
+    header = next(csv_data)
+
+
+    for row in csv_data:
+        #print(row)
+        #list_pnl = int(month[1])
+        #list_pnl = month
+        net_pnl += int(row[1])
+    print(net_pnl)
+
+-------------------------------------------------------
+
+with open(filepath, "r") as budget_data:
+    csv_data = csv.reader(budget_data)
+    list_pnl = 0
+    
+    header = next(csv_data)
+    line_num += 1
+    
+    for row in csv_data:
+            month = int(row[1])
+            total_number_months += 1
+                
+            if worst_month == 0:
+                worst_month = month
+            elif month > best_month:
+                best_month = month
+            elif month < worst_month:
+                worst_month = month
+                
+
+    print(worst_month)
+    print(best_month)
+    print(total_number_months)
+
+--------------------------------------------------------
+
+with open(filepath, "r") as budget_data:
+    csv_data = csv.reader(budget_data)
+    list_pnl = 0
+    
+    header = next(csv_data)
+    line_num += 1
+
+    for row in csv_data:
+        month = int(row[1])
+        total_number_months += 1
+            
+        if worst_month == 0:
+            worst_month = month
+        elif month > best_month:
+            best_month = month
+        elif month < worst_month:
+            worst_month = month
+            
+
+    print(f"Total Profit $ {net_pnl}")
+    print(f"Greatest Decrease in Profits: ${worst_month}")
+    print(f"Greatest Increase in Profits: ${best_month}")
+    print(f"Total Months: {total_number_months}")
+    print(f"Average Monthly Change: {average_change}")
+        
